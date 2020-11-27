@@ -1,72 +1,76 @@
-class Node:  
-  
-    # Constructor to initialize the node object  
-    def __init__(self, data):  
-        self.data = data  
+class node:
+    def __init__(self,data):
+        self.data = data
         self.next = None
-  
-class LinkedList:  
-  
-    # Function to initialize head  
-    def __init__(self):  
+
+class linked:
+    def __init__(self):
         self.head = None
-  
-    # Function to insert a new node at the beginning  
-    def push(self, new_data):  
-        new_node = Node(new_data)  
-        new_node.next = self.head  
-        self.head = new_node  
-  
-    # Given a reference to the head of a list and a key,  
-    # delete the first occurence of key in linked list  
-    def deleteNode(self, key):  
-          
-        # Store head node  
-        temp = self.head  
-  
-        # If head node itself holds the key to be deleted  
-        if (temp is not None):  
-            if (temp.data == key):  
+    
+    def push(self,new_data):
+        new_node = node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+    
+    def insertAfter(self,prev_node,new_data):
+        if prev_node is None:
+            print("There is no previous node")
+            return
+        
+        new_node = node(new_data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+    
+    def append(self,new_data):
+        new_node = node(new_data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        value = self.head
+        while(value.next):
+            value = value.next
+        value.next = new_node
+    
+    def delete_element(self,key):
+        temp = self.head
+        if (temp is not  None ) :
+            if (temp.data == key) :
                 self.head = temp.next
                 temp = None
                 return
-  
-        # Search for the key to be deleted, keep track of the  
-        # previous node as we need to change 'prev.next'  
-        while(temp is not None):  
-            if temp.data == key:  
+            
+            
+        while (temp is not None):
+            if (temp.data == key):
                 break
-            prev = temp  
+            prev  = temp
             temp = temp.next
-  
-        # if key was not present in linked list  
-        if(temp == None):  
+            
+        if temp == None:
             return
-  
-        # Unlink the node from linked list  
+        
         prev.next = temp.next
-  
         temp = None
-  
-  
-    # Utility function to print the linked LinkedList  
-    def printList(self):  
-        temp = self.head  
-        while(temp):  
-            print (" %d" %(temp.data)),  
+
+    def printlist(self):
+        temp = self.head
+        while (temp):
+            print(temp.data)
             temp = temp.next
-  
-  
-# Driver program  
-llist = LinkedList()  
-llist.push(7)  
-llist.push(1)  
-llist.push(3)  
-llist.push(2)  
-  
-print ("Created Linked List: ") 
-llist.printList()  
-llist.deleteNode(7)  
-print ("\nLinked List after Deletion of 1:") 
-llist.printList()  
-  
+
+if __name__ == '__main__':
+    llist = linked()
+    # appending the elements
+    llist.append(2)
+    llist.append(3)
+    llist.append(4)
+    # pushing 1 at first index
+    llist.push(1)
+    llist.insertAfter(llist.head,1.5) # inserting new element between 1 and 2
+    llist.printlist()
+    print("now 1 is deleted from the list")
+    llist.delete_element(1)
+    llist.printlist()
+    
+                 
