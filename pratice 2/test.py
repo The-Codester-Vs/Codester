@@ -52,13 +52,34 @@ class linked:
         
         prev.next = temp.next
         temp = None
-# printing the linked list
+    
+    def getcount(self):
+        temp = self.head
+        count = 0
+        while (temp):
+            count += 1
+            temp = temp.next
+        return count  
+    
+    def search(self,x):
+        current = self.head
+        
+        while current!= None:
+            if current.data == x:
+                return True
+            
+            current = current.next
+        return False 
+        
+        
+    # printing the linked list
     def printlist(self):
         temp = self.head
         while (temp):
             print(temp.data)
             temp = temp.next
-
+            
+          
 if __name__ == '__main__':
     llist = linked()
     # appending the elements
@@ -69,8 +90,13 @@ if __name__ == '__main__':
     llist.push(1)
     llist.insertAfter(llist.head,1.5) # inserting new element between 1 and 2
     llist.printlist()
-    print("now 1 is deleted from the list")
-    llist.delete_element(1)
-    llist.printlist()
+    print("Total numbers of nodes are:",llist.getcount())
     
+    # n = int(input("Enter the number which do you want search: "))
+    if llist.search(n):
+        print("Your value is in the list")
+    else:
+        print("Your value is not in the list") 
+    
+   
                  
