@@ -52,7 +52,7 @@ class linked:
         
         prev.next = temp.next
         temp = None
-
+# printing the linked list
     def printlist(self):
         temp = self.head
         while (temp):
