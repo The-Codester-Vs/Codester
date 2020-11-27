@@ -17,7 +17,7 @@ class linked:
         if temp is not None:
             if temp.data == key:
                 self.head = temp.next
-                temp = None
+                # temp = None
                 return
 
 
