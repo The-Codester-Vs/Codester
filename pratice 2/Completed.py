@@ -70,7 +70,24 @@ class linked:
             
             current = current.next
         return False 
+    def sort(self):
+        current = self.head
+        index = None
         
+        if (self.head == None):
+            return
+        else:
+            while(current != None):
+                index = current.next
+                while(index != None):
+                    if (current.data > index.data):
+                        temp = current.data
+                        current.data = index.data
+                        index.data = temp
+                    index = index.next
+                current = current.next
+                        
+                                 
         
     # printing the linked list
     def printlist(self):
@@ -88,11 +105,18 @@ if __name__ == '__main__':
     llist.append(4)
     # pushing 1 at first index
     llist.push(1)
+    llist.push(6)
     llist.insertAfter(llist.head,1.5) # inserting new element before 2 and
     llist.delete_element(3)
     llist.printlist()
-    print("Total numbers of nodes are:",llist.getcount())
     
+    print("Sorted List:")
+    llist.sort()
+    llist.printlist()
+    
+    
+    
+    print("Total numbers of nodes are:",llist.getcount())
     # n = int(input("Enter the number which do you want search: "))
     if llist.search(3):
         print("Your value is in the list")
