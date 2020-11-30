@@ -7,11 +7,13 @@ class linked:
     def __init__(self):
         self.head = None
     
+    # pushing node at 1st
     def push(self,new_data):
         new_node = node(new_data)
         new_node.next = self.head
         self.head = new_node
     
+    # inserting the node before aur after the head node
     def insertAfter(self,prev_node,new_data):
         if prev_node is None:
             print("There is no previous node")
@@ -21,6 +23,7 @@ class linked:
         new_node.next = prev_node.next
         prev_node.next = new_node
     
+    # adding the element into the list
     def append(self,new_data):
         new_node = node(new_data)
         if self.head is None:
@@ -32,6 +35,7 @@ class linked:
             value = value.next
         value.next = new_node
     
+    # deleting the element 
     def delete_element(self,key):
         temp = self.head
         if (temp is not  None ) :
@@ -53,6 +57,7 @@ class linked:
         prev.next = temp.next
         temp = None
     
+    # counting the total numbers of node
     def getcount(self):
         temp = self.head
         count = 0
@@ -61,6 +66,7 @@ class linked:
             temp = temp.next
         return count  
     
+    # searching the node in the linked list
     def search(self,x):
         current = self.head
         
@@ -69,7 +75,9 @@ class linked:
                 return True
             
             current = current.next
-        return False 
+        return False
+    
+    # sortting the linked list in incresing order 
     def sort(self):
         current = self.head
         index = None
@@ -103,15 +111,16 @@ if __name__ == '__main__':
     llist.append(2)
     llist.append(3)
     llist.append(4)
-    # pushing 1 at first index
+    # pushing at first index
     llist.push(1)
     llist.push(6)
+    # inserting the element before and after the head node
     llist.insertAfter(llist.head,1.5) # inserting new element before 2 and
     llist.delete_element(3)
     llist.printlist()
     
     print("Sorted List:")
-    llist.sort()
+    llist.sort()# sorting the list in incresing order
     llist.printlist()
     
     print("--------------------------------------------------------")
