@@ -114,7 +114,7 @@ if __name__ == '__main__':
     llist.sort()
     llist.printlist()
     
-    
+    print("--------------------------------------------------------")
     
     print("Total numbers of nodes are:",llist.getcount())
     # n = int(input("Enter the number which do you want search: "))
