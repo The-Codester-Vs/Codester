@@ -88,7 +88,7 @@ if __name__ == '__main__':
     llist.append(4)
     # pushing 1 at first index
     llist.push(1)
-    llist.insertAfter(llist.head,1.5) # inserting new element between 1 and 2
+    llist.insertAfter(llist.head,1.5) # inserting new element before 2 and
     llist.delete_element(3)
     llist.printlist()
     print("Total numbers of nodes are:",llist.getcount())
