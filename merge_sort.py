@@ -1,3 +1,4 @@
+# merge sort
 def MergeSort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
