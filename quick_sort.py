@@ -1,4 +1,4 @@
-
+# Merge sort
 def partition(arr,low,high): 
 	i = ( low-1 )		 # index of smaller element 
 	pivot = arr[high]	 # pivot 
