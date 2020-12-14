@@ -36,5 +36,4 @@ if __name__ == '__main__':
     arr = [1,2,4,5,7,4,2,0]
     printlist(arr)
     MergeSort(arr)
-    printlist(arr)
-                                        
+    printlist(arr)                                  
