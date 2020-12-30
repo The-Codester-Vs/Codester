@@ -7,11 +7,18 @@ class linked:
     def __init__(self):
         self.head = None
 
-    def push(self,new_data):
+    def append(self,new_data):
         new_node = node(new_data)
-        new_node.next = self.head
-        self.head = new_node
-    def delete(self,key):
+        if self.head == None:
+            self.head = new_node
+            return
+        
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+
+    def delete_element(self,key):
         temp = self.head
 
         if temp is not None:
@@ -41,9 +48,10 @@ class linked:
 if __name__ == '__main__':
     
     llist = linked()
-    llist.push(1)
-    llist.push(2)
-    llist.delete(1)
+    llist.append(1)
+    llist.append(2)
+    llist.append(3)
+    # llist.delete_element(1)
     llist.printlist()
 
     
